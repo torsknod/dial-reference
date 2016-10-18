@@ -162,9 +162,9 @@ static void handle_mcast() {
     char send_buf[sizeof(ssdp_reply) + INET_ADDRSTRLEN + 256 + 256 + sizeof(wakeup_buf)] = {0,};
     int send_size;
     if (-1 < wakeup_timeout && wakeOnWifiLan) {
-        snprintf(wakeup_buf, sizeof(wakeup_buf), wakeup_header, hw_addr, wakeup_timeout);
+        snprintf(wakeup_buf, sizeof(wakeup_buf), wakeup_header, hw_addr, wakeup_timeout); /* Flawfinder: ignore */
     }
-    send_size = snprintf(send_buf, sizeof(send_buf), ssdp_reply, ip_addr, my_port, uuid, wakeup_buf);
+    send_size = snprintf(send_buf, sizeof(send_buf), ssdp_reply, ip_addr, my_port, uuid, wakeup_buf); /* Flawfinder: ignore */
     if (-1 == (s = socket(AF_INET, SOCK_DGRAM, 0))) {
         perror("socket");
         exit(1);

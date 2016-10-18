@@ -4,14 +4,14 @@
 #include <stdlib.h>
 
 /* Fetch the MACAddress of a network interface */
-int getMACAddress(char* ifname, char* macBuf, unsigned int macBufSize)
+static int getMACAddress(char* ifname, char* macBuf, unsigned int macBufSize)
 {
     struct ifreq ifr;
     int sock;
     unsigned char chMAC[6];
 
     sock=socket(AF_INET,SOCK_DGRAM,0);
-    strcpy( ifr.ifr_name, ifname );
+    strcpy( ifr.ifr_name, ifname ); /* Flawfinder: ignore */
     ifr.ifr_addr.sa_family = AF_INET;
     if (ioctl( sock, SIOCGIFHWADDR, &ifr ) < 0) {
         close(sock);
@@ -28,7 +28,7 @@ int getMACAddress(char* ifname, char* macBuf, unsigned int macBufSize)
     return 0;
 }
 
-bool hasRoute(const char *nf, int flag)
+static bool hasRoute(const char *nf, int flag)
 {
     bool result = false;
     const char* fileName = "/proc/net/route";
@@ -53,7 +53,7 @@ bool hasRoute(const char *nf, int flag)
     return result;
 }
 
-bool isDefault(char *nf)
+static bool isDefault(char *nf)
 {
     return hasRoute(nf, 0x03);
 }

@@ -145,7 +145,7 @@ static void handle_app_start(struct mg_connection *conn,
 
             if (app->useAdditionalData) {
                 // Construct additionalDataUrl=http://host:port/apps/app_name/dial_data
-                sprintf(additional_data_param,
+                sprintf(additional_data_param, /* Flawfinder: ignore */
                         "additionalDataUrl=http%%3A%%2F%%2Flocalhost%%3A%d%%2Fapps%%2F%s%%2Fdial_data%%3F",
                         dial_port, app_name);
             }
@@ -652,7 +652,7 @@ int DIAL_register_app(DIALServer *ds, const char *app_name,
         app->corsAllowedOrigin[0] = '\0';
         if (corsAllowedOrigin &&
             strlen(corsAllowedOrigin) < sizeof(app->corsAllowedOrigin)) {
-          strcpy(app->corsAllowedOrigin, corsAllowedOrigin);
+          strcpy(app->corsAllowedOrigin, corsAllowedOrigin); /* Flawfinder: ignore */
         }
         *ptr = app;
         ret = 1;

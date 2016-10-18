@@ -172,7 +172,7 @@ DIALData *parse_params(char * query_string) {
         size_t name_value_length = strlen(name_value);
         tmp->key = (char *) malloc(name_value_length);
         tmp->value = (char *) malloc(name_value_length);
-        sscanf(name_value, "%[^=]=%s", tmp->key, tmp->value);
+        sscanf(name_value, "%[^=]=%s", tmp->key, tmp->value); /* Flawfinder: ignore */
         tmp->next = result;
         result = tmp;
 
