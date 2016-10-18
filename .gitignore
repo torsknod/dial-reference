@@ -28,4 +28,6 @@ Makefile.in
 /missing
 *.o
 /server/dialserver
+/server/tests/test
 /stamp-h1
+
