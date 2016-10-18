@@ -27,7 +27,7 @@
 #ifndef URLLIB_H_
 #define URLLIB_H_
 
-#include "dial_data.h"
+#include <dial_data.h>
 #include <stddef.h>
 
 /**

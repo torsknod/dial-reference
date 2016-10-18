@@ -23,8 +23,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "dial_data.h"
-#include "dial_server.h"
+#include <dial_data.h>
+#include <dial_server.h>
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -35,9 +35,9 @@
 #include <string.h>
 #include <sys/socket.h>
 
-#include "mongoose.h"
-#include "url_lib.h"
-#include "LinuxInterfaces.h"
+#include <mongoose.h>
+#include <url_lib.h>
+#include <LinuxInterfaces.h>
 
 // TODO: Partners should define this port
 #define DIAL_PORT (56789)

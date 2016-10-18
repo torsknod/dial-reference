@@ -27,8 +27,8 @@
 #define DIALCONFORMANCE_H
 
 #include <memory>
-#include "DialServer.h"
-#include "DialClientInput.h"
+#include <DialServer.h>
+#include <DialClientInput.h>
 
 using namespace std;
 

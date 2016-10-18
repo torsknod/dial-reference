@@ -25,7 +25,7 @@
 /*
  * Functions related to storing/retrieving and manipulating DIAL data.
  */
-#include "dial_data.h"
+#include <dial_data.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>

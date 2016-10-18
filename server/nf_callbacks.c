@@ -6,8 +6,8 @@
 #include <unistd.h>
 #include <dirent.h>
 #include <regex.h>
-#include "dial_server.h"
-#include "url_lib.h"
+#include <dial_server.h>
+#include <url_lib.h>
 
 extern char *spAppNetflix;
 extern char spNetflix[];

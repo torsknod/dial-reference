@@ -1,7 +1,9 @@
+
 /aclocal.m4
 /autom4te.cache
 /autoscan-*.log
 /autoscan.log
+/client/dialclient
 /compile
 /config.guess
 /config.h
@@ -13,13 +15,17 @@
 /configure.scan
 /depcomp
 .deps
+.dirstamp
 /install-sh
+*.la
 .libs
 /libtool
+*.lo
 /ltmain.sh
 /m4
 Makefile
 Makefile.in
 /missing
 *.o
+/server/dialserver
 /stamp-h1

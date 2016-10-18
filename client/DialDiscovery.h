@@ -26,7 +26,7 @@
 #ifndef DIALDISCOVERY_H
 #define DIALDISCOVERY_H
 
-#include "DialServer.h"
+#include <DialServer.h>
 #include <map>
 
 using namespace std;

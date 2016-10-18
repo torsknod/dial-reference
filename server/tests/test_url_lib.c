@@ -22,14 +22,14 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#include "../url_lib.h"
-#include "../dial_data.h"
+#include <../url_lib.h>
+#include <../dial_data.h>
 
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
 #include <ctype.h>
-#include "test.h"
+#include <test.h>
 
 void test_smartstrcat() {
     char* src1 = "Hello ";

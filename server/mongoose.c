@@ -58,7 +58,7 @@
 
 typedef int SOCKET;
 
-#include "mongoose.h"
+#include <mongoose.h>
 
 #define MONGOOSE_VERSION "3.0"
 #define ARRAY_SIZE(array) (sizeof(array) / sizeof(array[0]))

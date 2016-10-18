@@ -53,7 +53,8 @@ AC_CHECK_FUNCS([inet_ntoa memmove memset putenv regcomp select socket strchr str
 
 AM_WITH_DMALLOC
 
-AC_CONFIG_FILES([server/Makefile
+AC_CONFIG_FILES([Makefile
+                 server/Makefile
                  server/tests/Makefile
                  client/Makefile])
 AC_OUTPUT
