@@ -1,2 +1,2 @@
 language: c
-script: autoreconf -i && ./configure && make && make check
+script: (cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure && make && make check
