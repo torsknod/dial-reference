@@ -18,22 +18,11 @@ AC_PROG_LIBTOOL
 PKG_PROG_PKG_CONFIG
 
 PKG_CHECK_MODULES([LIBCURL], [libcurl])
+PKG_CHECK_MODULES([PTHREAD_STUBS], [pthread-stubs])
 
 # Checks for libraries.
-# FIXME: Replace `main' with a function in `-ldl':
-AC_CHECK_LIB([dl], [main])
 AC_CHECK_LIB([pthread], [pthread_self])
-# FIXME: Replace `main' with a function in `-lrt':
-AC_CHECK_LIB([rt], [main])
-# FIXME: Replace `main' with a function in `-lcares':
-AC_CHECK_LIB([cares], [main])
-# FIXME: Replace `main' with a function in `-lcrypto':
-AC_CHECK_LIB([crypto], [main])
 LIBCURL_CHECK_CONFIG
-# FIXME: Replace `main' with a function in `-lssl':
-AC_CHECK_LIB([ssl], [main])
-# FIXME: Replace `main' with a function in `-lz':
-AC_CHECK_LIB([z], [main])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h inttypes.h limits.h netdb.h netinet/in.h stddef.h stdint.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h unistd.h])
