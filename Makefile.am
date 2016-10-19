@@ -1,3 +1,3 @@
 EXTRA_DIST = OSSMETADATA
-SUBDIRS = server client
+SUBDIRS = c-tap-harness server client
 ACLOCAL_AMFLAGS = -I m4
