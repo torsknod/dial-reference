@@ -16,6 +16,7 @@
 /depcomp
 .deps
 .dirstamp
+/INSTALL
 /install-sh
 *.la
 .libs
@@ -23,6 +24,11 @@
 *.lo
 /ltmain.sh
 /m4
+/m4/libtool.m4
+/m4/lt~obsolete.m4
+/m4/ltoptions.m4
+/m4/ltsugar.m4
+/m4/ltversion.m4
 Makefile
 Makefile.in
 /missing
@@ -30,4 +36,5 @@ Makefile.in
 /server/dialserver
 /server/tests/test
 /stamp-h1
-
+/tap-driver.sh
+/test-driver
