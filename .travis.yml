@@ -3,7 +3,7 @@ language: c
 before_script:
   - test -d m4 || mkdir m4
   - pip install --user cpp-coveralls
-script: (cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure && make && make check
+script: (cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure && make distcheck
 addons:
   apt:
     packages:
