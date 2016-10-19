@@ -9,6 +9,7 @@ addons:
     packages:
       - gcc
       - automake
+      - lcov
       - libtool
       - libdmalloc-dev
       - libcurl-dev

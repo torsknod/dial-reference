@@ -45,6 +45,8 @@ AC_CHECK_FUNCS([inet_ntoa memmove memset putenv regcomp select socket strchr str
 
 AM_WITH_DMALLOC
 
+AX_CODE_COVERAGE
+
 AC_CONFIG_FILES([Makefile
                  server/Makefile
                  server/tests/Makefile
