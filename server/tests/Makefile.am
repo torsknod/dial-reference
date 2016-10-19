@@ -1,8 +1,13 @@
 AUTOMAKE_OPTIONS = subdir-objects
-EXTRA_DIST = test_dial_data.h test.h test_url_lib.h 
-check_PROGRAMS = test
+EXTRA_DIST = test_dial_data.h test_url_lib.h
+check_PROGRAMS = test_url_lib test_dial_data
 TESTS = $(check_PROGRAMS)
+AM_CPPFLAGS = -I$(top_srcdir)/server -I$(top_srcdir)/c-tap-harness
+AM_CFLAGS = -I$(top_srcdir)/server -I$(top_srcdir)/c-tap-harness
+LOG_DRIVER = env AM_TAP_AWK='$(AWK)' $(SHELL) $(top_srcdir)/tap-driver.sh
 
-test_SOURCES = run_tests.c test_dial_data.c test_url_lib.c ../url_lib.c ../dial_data.c
-test_CPPFLAGS = $(AM_CPPFLAGS) -I$(top_srcdir)/server
-test_CFLAGS = $(AM_CFLAGS) -I$(top_srcdir)/server
+test_url_lib_SOURCES = test_url_lib.c ../url_lib.c
+test_url_lib_LDADD = $(top_builddir)/c-tap-harness/tests/tap/libtap.a
+
+test_dial_data_SOURCES = test_dial_data.c ../dial_data.c
+test_dial_data_LDADD = $(top_builddir)/c-tap-harness/tests/tap/libtap.a

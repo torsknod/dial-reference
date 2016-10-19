@@ -22,29 +22,28 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-#include <../dial_data.h>
+#include <dial_data.h>
 
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#include <test.h>
+#include <tests/tap/basic.c>
 
-int key_value_pairs = 3;
-char *keys[] = {"key1", "key2", "key3"};
-char *values[] = {"value1", "value2", "value3"};
+static const int key_value_pairs = 3;
+static const char *keys[] = {"key1", "key2", "key3"};
+static const char *values[] = {"value1", "value2", "value3"};
 
-void test_read_dial_data() {
+static void test_read_dial_data() {
     DIALData *data = retrieve_dial_data("dial_data");
     for (int i = 0; data != NULL; data = data->next, i++) {
-        EXPECT_STREQ(data->key, keys[2 - i]);
-        EXPECT_STREQ(data->value, values[2 - i]);
+        is_string(keys[2 - i], data->key, "Check read key");
+        is_string(values[2 - i], data->value, "Check read value");
     }
-    DONE();
 }
 
-void test_write_dial_data() {
+static void test_write_dial_data() {
     DIALData *result = NULL;
     for (int i = 0; i < key_value_pairs; ++i) {
         DIALData *node = (DIALData *) malloc(sizeof(DIALData));
@@ -58,9 +57,14 @@ void test_write_dial_data() {
     DIALData *readBack = retrieve_dial_data("YouTube");
 
     for (int i = 0; readBack != NULL; readBack = readBack->next, i++) {
-        EXPECT_STREQ(readBack->key, keys[i]);
-        EXPECT_STREQ(readBack->value, values[i]);
+        is_string(keys[i],readBack->key, "Check written key");
+        is_string(values[i],readBack->value, "Check written value");
     }
+}
 
-    DONE();
+int main() {
+    plan(2*key_value_pairs);
+    test_read_dial_data();
+    test_write_dial_data();
+    return 0;
 }

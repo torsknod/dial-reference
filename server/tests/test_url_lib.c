@@ -29,9 +29,9 @@
 #include <string.h>
 #include <assert.h>
 #include <ctype.h>
-#include <test.h>
+#include <tests/tap/basic.h>
 
-void test_smartstrcat() {
+static void test_smartstrcat() {
     char* src1 = "Hello ";
     char* src2 = "world!";
     char* src3 = " Trunc ated";
@@ -39,63 +39,58 @@ void test_smartstrcat() {
 
     char* p = (char *) dest;
     p = smartstrcat(p, src1, 128);
-    EXPECT_STREQ(dest, "Hello ");
+    is_string("Hello ", dest, "1");
     p = smartstrcat(p, src2, dest + 128 - p);
 
-    EXPECT_STREQ(dest, "Hello world!");
+    is_string("Hello world!", dest, "2");
 
     p = smartstrcat(p, src3, 6);
-    EXPECT_STREQ(dest, "Hello world! Trunc");
-
-    DONE();
+    is_string("Hello world! Trunc", dest, "3");
 }
 
-void test_urldecode() {
+static void test_urldecode() {
     char* param = "%26bla+r";
     char dest[128] = {0, };
 
-    EXPECT(urldecode(dest, param, 128), "Failed to decode.");
-    EXPECT_STREQ(dest, "&bla r");
-    DONE();
+    ok(urldecode(dest, param, 128), "Failed to decode.");
+    is_string("&bla r", dest, "Failed to decode.");
 }
 
-void test_parse_app_name() {
+static void test_parse_app_name() {
     char *app_name;
-    EXPECT((app_name = parse_app_name(NULL)), "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "unknown");
-    EXPECT((app_name = parse_app_name("")), "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "unknown");
-    EXPECT((app_name = parse_app_name("/")), "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "unknown");
-    EXPECT((app_name = parse_app_name("/apps/YouTube/DialData")),
+    ok((app_name = parse_app_name(NULL)) != NULL, "Failed to extract app_name");
+    is_string("unknown", app_name, "Failed to extract app_name");
+    ok((app_name = parse_app_name("")) != NULL, "Failed to extract app_name");
+    is_string("unknown", app_name, "Failed to extract app_name");
+    ok((app_name = parse_app_name("/")) != NULL, "Failed to extract app_name");
+    is_string("unknown", app_name, "Failed to extract app_name");
+    ok((app_name = parse_app_name("/apps/YouTube/DialData")) != NULL,
            "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "YouTube");
-    EXPECT((app_name = parse_app_name("//")), "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "");
-    EXPECT((app_name = parse_app_name("/invalid")),
+    is_string("YouTube", app_name, "Failed to extract app_name");
+    ok((app_name = parse_app_name("//")) != NULL, "Failed to extract app_name");
+    is_string("", app_name, "Failed to extract app_name");
+    ok((app_name = parse_app_name("/invalid")) != NULL,
            "Failed to extract app_name");
-    EXPECT_STREQ(app_name, "unknown");
-
-    DONE();
+    is_string("unknown", app_name, "Failed to extract app_name");
 }
 
-void test_parse_params() {
-    EXPECT(!parse_params(""), "Empty query string should generate no params");
-    EXPECT(!parse_params(NULL), "Null query, should generate no params");
+static void test_parse_params() {
+    ok(!parse_params(""), "Empty query string should generate no params");
+    ok(!parse_params(NULL), "Null query, should generate no params");
 
     DIALData *result = parse_params("a=b");
-    EXPECT_STREQ(result->key, "a");
-    EXPECT_STREQ(result->value, "b");
+    is_string("a", result->key, "Wrong key");
+    is_string("b", result->value, "Wrong value");
 
     result = parse_params("?a=b");
-    EXPECT_STREQ(result->key, "a");
-    EXPECT_STREQ(result->value, "b");
+    is_string("a", result->key, "Wrong key");
+    is_string("b", result->value, "Wrong value");
 
     result = parse_params("?a=b&c=d");
-    EXPECT_STREQ(result->key, "c");
-    EXPECT_STREQ(result->value, "d");
-    EXPECT_STREQ(result->next->key, "a");
-    EXPECT_STREQ(result->next->value, "b");
+    is_string("c", result->key, "Wrong key");
+    is_string("d", result->value, "Wrong value");
+    is_string("a", result->next->key, "Wrong next key");
+    is_string("b", result->next->value, "Wrong next value");
 
     char query_string[1024] = {0, };
     char *current = query_string;
@@ -107,7 +102,14 @@ void test_parse_params() {
     for (; result != NULL; result = result->next) {
         length++;
     }
-    EXPECT((length == 25), "25 params should have been parsed");
+    is_int(25, length, "25 params should have been parsed");
+}
 
-    DONE();
+int main() {
+    plan(28);
+    test_smartstrcat();
+    test_urldecode();
+    test_parse_app_name();
+    test_parse_params();
+    return 0;
 }

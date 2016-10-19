@@ -9,6 +9,7 @@ AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SUBDIRS([c-tap-harness])
+AC_REQUIRE_AUX_FILE([tap-driver.sh])
 LT_INIT()
 
 # Checks for programs.
