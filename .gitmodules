@@ -1,0 +1,3 @@
+[submodule "c-tap-harness"]
+	path = c-tap-harness
+	url = https://github.com/rra/c-tap-harness.git
