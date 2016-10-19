@@ -1,4 +1,5 @@
 @CODE_COVERAGE_RULES@
+@VALGRIND_CHECK_RULES@
 EXTRA_DIST = dial_data.h dial_options.h dial_server.h LinuxInterfaces.h mongoose.h nf_callbacks.h url_lib.h 
 SUBDIRS = . tests
 ACLOCAL_AMFLAGS = -I m4

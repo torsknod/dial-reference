@@ -1,6 +1,6 @@
 @CODE_COVERAGE_RULES@
+@VALGRIND_CHECK_RULES@
 AUTOMAKE_OPTIONS = subdir-objects
-EXTRA_DIST = test_dial_data.h test_url_lib.h
 check_PROGRAMS = test_url_lib test_dial_data
 TESTS = $(check_PROGRAMS)
 AM_CPPFLAGS = -I$(top_srcdir)/server -I$(top_srcdir)/c-tap-harness
