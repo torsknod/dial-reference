@@ -12,6 +12,7 @@ addons:
       - libcurl-dev
       - curl
       - pod2man
+  srcclr: true
 matrix:
   include:
     - os: linux
