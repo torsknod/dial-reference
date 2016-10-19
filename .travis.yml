@@ -1,2 +1,13 @@
+sudo: false
 language: c
 script: (cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure && make && make check
+addons:
+  apt:
+    packages:
+      - gcc
+      - automake
+      - libtool
+      - libdmalloc-dev
+      - libcurl-dev
+      - curl
+      - pod2man
