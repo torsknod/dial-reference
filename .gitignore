@@ -23,6 +23,7 @@
 .libs
 /libtool
 *.lo
+*.log
 /ltmain.sh
 /m4
 /m4/libtool.m4
@@ -36,6 +37,10 @@ Makefile.in
 *.o
 /server/dialserver
 /server/tests/test
+/server/tests/test_dial_data
+/server/tests/test_url_lib
 /stamp-h1
 /tap-driver.sh
 /test-driver
+test-suite.log
+*.trs

@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.69])
 AC_INIT([dial-reference], [2.1], [jcli@netflix.com])
-AM_INIT_AUTOMAKE([-Wall -Werror])
+AM_INIT_AUTOMAKE([1.13.2 -Wall -Werror])
 AM_MAINTAINER_MODE
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_HEADERS([config.h])
