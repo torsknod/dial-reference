@@ -3,21 +3,22 @@
 
 AC_PREREQ([2.69])
 AC_INIT([dial-reference], [2.1], [jcli@netflix.com])
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([-Wall -Werror])
 AM_MAINTAINER_MODE
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SUBDIRS([c-tap-harness])
 AC_REQUIRE_AUX_FILE([tap-driver.sh])
-LT_INIT()
 
 # Checks for programs.
+AM_PROG_AR
 AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_MAKE_SET
 AC_PROG_LIBTOOL
 PKG_PROG_PKG_CONFIG
+LT_INIT()
 
 PKG_CHECK_MODULES([LIBCURL], [libcurl])
 PKG_CHECK_MODULES([PTHREAD_STUBS], [pthread-stubs])
