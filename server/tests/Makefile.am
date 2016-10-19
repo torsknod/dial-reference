@@ -1,3 +1,4 @@
+@CODE_COVERAGE_RULES@
 AUTOMAKE_OPTIONS = subdir-objects
 EXTRA_DIST = test_dial_data.h test_url_lib.h
 check_PROGRAMS = test_url_lib test_dial_data

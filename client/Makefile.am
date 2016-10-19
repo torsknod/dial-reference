@@ -1,3 +1,4 @@
+@CODE_COVERAGE_RULES@
 EXTRA_DIST = DialClientInput.h DialConformance.h DialDiscovery.h DialServer.h 
 
 bin_PROGRAMS = dialclient
