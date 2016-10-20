@@ -22,9 +22,9 @@ addons:
       - lcov
       - libtool
       - libdmalloc-dev
-      - libcurl-dev
+      - libcurl4-openssl-dev
       - curl
-      - pod2man
+      - perl
       - valgrind
       - libtest-pod-perl
   srcclr: true
