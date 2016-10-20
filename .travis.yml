@@ -3,9 +3,9 @@ services: docker
 os: linux
 dist: xenial
 before_install:
-  - apt-get -y -qq update
-  - apt-get -y -qq dist-upgrade
-  - docker pull ubuntu/latest
+  - sudo apt-get -y -qq update
+  - sudo apt-get -y -qq dist-upgrade
+  - docker pull ubuntu:latest
   
 language: c
 before_script:
