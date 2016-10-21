@@ -10,8 +10,8 @@ before_install:
 language: c
 before_script:
   - test -d m4 || mkdir m4
-  - docker run -n temp -ti ubuntu:latest sh -c 'apt-get -qq -y update && apt-get -qq -y dist-upgrade && apt-get -qq -y install autoconf-archive automake build-essential curl gcc git lcov libcurl4-openssl-dev libdmalloc-dev libpthread-stubs0-dev libtest-pod-perl libtool perl pkg-config python-pip valgrind && pip install --upgrade pip && pip install cpp-coveralls'
-script: docker run -n test temp sh -c '(cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure --enable-valgrind --enable-compiler-warnings=error --with-dmalloc --with-gcov && make distcheck'
+  - docker run -n temp -t ubuntu:latest sh -c 'apt-get -qq -y update && apt-get -qq -y dist-upgrade && apt-get -qq -y install autoconf-archive automake build-essential curl gcc git lcov libcurl4-openssl-dev libdmalloc-dev libpthread-stubs0-dev libtest-pod-perl libtool perl pkg-config python-pip valgrind && pip install --upgrade pip && pip install cpp-coveralls'
+script: docker run -n test -t temp sh -c '(cd c-tap-harness && ./bootstrap) && autoreconf -i && ./configure --enable-valgrind --enable-compiler-warnings=error --with-dmalloc --with-gcov && make distcheck'
 #COPY . /root/dial-reference
 
 addons:
