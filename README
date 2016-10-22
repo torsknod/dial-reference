@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/torsknod/dial-reference.svg?branch=master)](https://travis-ci.org/torsknod/dial-reference)
+[![Build Status](https://travis-ci.org/torsknod/dial-reference.svg?branch=master)](https://travis-ci.org/torsknod/dial-reference)
 
 # Building the DIAL server and client
 The DIAL client is a standalone C++ console application you can use to test 
