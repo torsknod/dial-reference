@@ -6,7 +6,7 @@ dist: xenial
 language: c
 before_script:
   - test -d m4 || mkdir m4
-  - docker build -n test .
+  - docker build -t test .
 script: docker run test
 addons:
   apt:
