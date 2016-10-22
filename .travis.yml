@@ -21,4 +21,4 @@ addons:
       - perl
       - valgrind
       - libtest-pod-perl
-  srcclr: true
+#  srcclr: true
